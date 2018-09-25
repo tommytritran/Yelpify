@@ -24,14 +24,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wbw-Bg-dxF">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <searchBar key="tableHeaderView" contentMode="redraw" id="nWq-fR-UCj">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                </searchBar>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BuisnessCell" rowHeight="129" id="an2-1l-78B" customClass="BuisnessCell" customModule="Yelp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="72" width="375" height="129"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="129"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="an2-1l-78B" id="7mw-qt-ytP">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="128.5"/>
@@ -127,20 +122,28 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="wbw-Bg-dxF" secondAttribute="trailing" id="22p-9m-4lP"/>
                             <constraint firstItem="wbw-Bg-dxF" firstAttribute="leading" secondItem="XhR-oz-92f" secondAttribute="leading" id="eK9-nT-fHr"/>
                             <constraint firstItem="VBY-gq-v8E" firstAttribute="top" secondItem="wbw-Bg-dxF" secondAttribute="bottom" id="lG5-RO-u1x"/>
                             <constraint firstItem="wbw-Bg-dxF" firstAttribute="top" secondItem="XhR-oz-92f" secondAttribute="top" id="mIx-u6-b3d"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="7P3-f7-lBh" appends="YES" id="7Ih-NE-xTv"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Yelpify" id="xDl-kF-dXQ"/>
                     <connections>
-                        <outlet property="searchBar" destination="nWq-fR-UCj" id="fFx-eJ-MNY"/>
                         <outlet property="tableView" destination="wbw-Bg-dxF" id="ghy-fb-X1m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fgb-4b-F1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="7P3-f7-lBh">
+                    <connections>
+                        <action selector="onTap:" destination="2xI-yr-O5N" id="yEn-eR-FoP"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2727.1999999999998" y="357.57121439280365"/>
         </scene>

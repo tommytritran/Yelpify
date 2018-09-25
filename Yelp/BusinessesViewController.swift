@@ -13,8 +13,8 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
     
     @IBOutlet weak var tableView: UITableView!
     var businesses: [Business]!
-    var filteredData: [String]!
-    @IBOutlet weak var searchBar: UISearchBar!
+    var searchBar = UISearchBar()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +35,10 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
             
             }
         )
-        
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search for restaurants"
+        navigationItem.titleView = searchBar
+        searchDisplayController?.displaysSearchBarInNavigationBar = true
         /* Example of Yelp search with more search options specified
          Business.searchWithTerm(term: "Restaurants", sort: .distance, categories: ["asianfusion", "burgers"]) { (businesses, error) in
                 self.businesses = businesses
@@ -47,7 +50,18 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
          */
         
     }
-    
+    //Tried to implement tap to dismiss keyboard
+    //Doesn't work, couldn't figure out why
+    @IBAction func onTap(_ sender: Any) {
+        self.tableView.endEditing(true)
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -77,5 +91,8 @@ class BusinessesViewController: UIViewController, UITableViewDataSource, UITable
         
         return cell
     }
+    
+
+
     
 }

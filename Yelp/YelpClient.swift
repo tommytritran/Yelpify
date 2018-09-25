@@ -21,6 +21,9 @@ enum YelpSortMode: String {
 class YelpClient: AFHTTPRequestOperationManager {
     var apiKey: String!
     
+    var limit = 5
+    var offset = 0
+    var isMoreDataLoading = false
     //MARK: Shared Instance
     
     static let sharedInstance = YelpClient(yelpAPIKey: yelpAPIKey)
@@ -74,4 +77,6 @@ class YelpClient: AFHTTPRequestOperationManager {
                             completion(nil, error)
                         })!
     }
+    
+
 }
